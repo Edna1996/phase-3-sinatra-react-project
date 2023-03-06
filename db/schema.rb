@@ -13,37 +13,20 @@
 ActiveRecord::Schema.define(version: 2023_03_05_172154) do
 
   create_table "projects", force: :cascade do |t|
-    t.string "title", null: false
-    t.string "description", null: false
-    t.string "image_url"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.string "title"
+    t.string "description"
+    t.string "technology"
+    t.string "link"
   end
 
   create_table "skills", force: :cascade do |t|
-    t.string "skill_1", default: "", null: false
-    t.string "skill_2", default: ""
-    t.string "skill_3", default: ""
-    t.string "skill_4", default: ""
-    t.string "skill_5", default: ""
-    t.string "skill_6", default: ""
-    t.string "skill_7", default: ""
-    t.string "skill_8", default: ""
-    t.string "skill_9", default: ""
-    t.string "skill_10", default: ""
+    t.string "skill"
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "speciality"
-    t.string "avatar_url"
-    t.string "experience"
-    t.string "interests"
-    t.string "hobies"
-    t.datetime "date_of_birth"
-    t.string "locale"
-    t.string "address"
-    t.string "education"
+    t.string "email"
+    t.string "password"
   end
 
 end
