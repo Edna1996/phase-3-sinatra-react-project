@@ -11,7 +11,7 @@ class UserController < Sinatra::Base
       )
       user.to_json
   
-      userCredential = Credential.create(
+      userCredential = Detail.create(
         username: params[:username],
         email: user.email,
         password: params[:password],
@@ -23,7 +23,7 @@ class UserController < Sinatra::Base
   #   log in the user using email/username and password
     post '/login' do
         user_data = JSON.parse(request.body.read)
-        if  user = Credential.find_by(email: user_data['email']) || user = Credential.find_by(username: user_data['username']) && user = Credential.find_by(password: user_data['password'])
+        if  user = Detail.find_by(email: user_data['email']) || user = Detail.find_by(username: user_data['username']) && user = Credential.find_by(password: user_data['password'])
           user.to_json
         else
           {message: "Invalid email, username or password."}.to_json
